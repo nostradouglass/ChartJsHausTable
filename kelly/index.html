@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="position:absolute; top:60px; left:10px; width:550px; height:450px;">
+    <canvas id="myChart" width="500" height="400"></canvas>
+    </div>
+    <script src="../dist/Chart.min.js"></script>
+    <script>
+        var ctx = document.getElementById("myChart").getContext("2d");
+
+        var data = {
+            
+            labels: ["0", "Baseline", "2", "4", "8", "12"],
+            datasets: [
+                {
+                    label: "Metaderm",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: "green",
+                    borderColor: "green",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [null, 0, 8, 40, 52, 70],
+                    spanGaps: false,
+                    pointStyle: 'circle',
+                    pointRadius: 5,
+                   
+                },{
+                    label: "Calcipotriol",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: "blue",
+                    borderColor: "blue",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [null, 0, 5, 18, 20, 33],
+                    spanGaps: false,
+                    pointStyle: 'circle',
+                    pointRadius: 5,
+                }
+
+
+            ]
+        };
+
+
+        var options = {
+            tooltips: {enabled: false},
+                    hover: { mode: null },
+            title: {
+                display: true,
+                //text: 'Metaderm vs Calcipotriol'
+            },
+            legend: {
+                display: true,
+                position: 'right'
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    },
+                    display: true,
+                    ticks: {
+                            fontSize: 15,
+                            fontStyle: "bold" 
+                        },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Weeks',
+                        fontSize: 18,
+                        fontStyle: "bold"
+                    }
+                    
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    },
+                    display: true,
+                    type: 'linear',
+                    ticks: {
+                        min: 0,
+                        max: 100,
+                        fontSize: 15,
+                        fontStyle: "bold"
+                    },
+                    scaleLabel: {
+                        display: true,
+                        type: 'linear',
+                        labelString: 'Patients achieving PASI 75(%)',
+                        
+                        fontStyle: "bold"
+                    }
+                    
+                }]
+            }
+        }
+
+
+
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+    </script>
+
+</body>
+
+</html>
